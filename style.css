@@ -1,0 +1,417 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700,900';
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  background-color: #dddddd;
+}
+.wrap {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+.wrap .calendar {
+  height: 360px;
+  background: white;
+  border: 3px solid #232323;
+  box-sizing: border-box;
+  padding: 5%;
+  font-size: 0;
+}
+.wrap .calendar .selected {
+  width: 45%;
+  margin-right: 5%;
+  display: inline-block;
+}
+.wrap .calendar .selected .whatDay {
+  font: 30px 'Montserrat';
+  text-align: center;
+  border-bottom: 1px solid #acacac;
+  margin: 0 40px 0;
+  padding-bottom: 10px;
+}
+.wrap .calendar .selected .selectedDay {
+  font: 160px 'Montserrat';
+  line-height: 240px;
+  text-align: center;
+  font-weight: 900;
+  position: relative;
+  z-index: 0;
+}
+.wrap .calendar .selected .todayMarker {
+  text-align: center;
+  position: relative;
+}
+.wrap .calendar .selected .todayMarker .checkMark {
+  margin-top: -36px;
+  font-size: 20px;
+  line-height: 1em;
+  color: #acacac;
+}
+.wrap .calendar .selected .todayMarker .goToday {
+  position: absolute;
+  left: 50%;
+  margin-left: -15%;
+  width: 30%;
+  border: 1px solid #acacac;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font: 0.5px 'Montserrat';
+  color: #acacac;
+}
+.wrap .calendar .selected .todayMarker .goToday:hover {
+  color: white;
+  background-color: #acacac;
+}
+.wrap .calendar .selected .todayMarker .hidden {
+  height: 0;
+  opacity: 0;
+}
+.wrap .calendar .month {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+.wrap .calendar .month .whatMonth {
+  font-size: 0;
+  text-align: center;
+  width: 100%;
+}
+.wrap .calendar .month .whatMonth div {
+  display: inline-block;
+}
+.wrap .calendar .month .whatMonth .whatMonthText {
+  font: 0.65px 'Montserrat';
+  width: 80%;
+  height: 40px;
+}
+.wrap .calendar .month .whatMonth .whatMonthArrow {
+  width: 10%;
+  height: 40px;
+  vertical-align: middle;
+  font-size: 20px;
+  line-height: 40px;
+  transition: 0.1s;
+  color: #acacac;
+  cursor: pointer;
+}
+.wrap .calendar .month .whatMonth .whatMonthArrow:hover {
+  font-size: 24px;
+  margin-top: -2px;
+  color: #232323;
+}
+.wrap .calendar .month .table {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  margin-top: 20px;
+}
+.wrap .calendar .month .table .weeks {
+  text-align: center;
+}
+.wrap .calendar .month .table .weeks li {
+  width: calc(14.285714285714286%);
+  height: 40px;
+  font: 0.5px 'Montserrat';
+  font-weight: 700;
+  float: left;
+}
+.wrap .calendar .month .table .weeks li:first-child {
+  color: red;
+}
+.wrap .calendar .month .table .weeks input {
+  display: none;
+}
+.wrap .calendar .month .table .weeks input[type="radio"] + label {
+  width: calc(14.285714285714286%);
+  display: inline-block;
+  padding-top: 4px;
+  font: 0.5714285714285714px 'Montserrat';
+  border: 1px solid white;
+  box-sizing: border-box;
+  position: relative;
+}
+.wrap .calendar .month .table .weeks input[type="radio"] + label:nth-child(2) {
+  color: red;
+}
+.wrap .calendar .month .table .weeks input[type="radio"] + label div {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  margin-left: -2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+}
+.wrap .calendar .month .table .weeks input[type="radio"]:checked + label {
+  border: 1px solid red;
+  box-sizing: border-box;
+  background: red;
+  color: white;
+}
+.wrap .todo {
+  background: white;
+  border: 3px solid #232323;
+  box-sizing: border-box;
+  margin-top: 2%;
+  padding: 5%;
+  font-size: 0;
+}
+.wrap .todo .todoText {
+  display: none;
+  font: 30px 'Montserrat';
+}
+.wrap .todo .form input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #acacac;
+  font: 30px 'Montserrat';
+  text-indent: 2%;
+}
+.wrap .todo .form input[type="text"]::placeholder {
+  font: italic 0.575px 'Montserrat';
+  color: #acacac;
+  text-indent: 2%;
+}
+.wrap .todo .form input[type="submit"] {
+  visibility: hidden;
+}
+.wrap .todo .listEdit .todoLists {
+  position: relative;
+}
+.wrap .todo .listEdit .todoLists .list {
+  height: 40px;
+  border-bottom: 1px solid #acacac;
+}
+.wrap .todo .listEdit .todoLists .list:hover .listDeleteButton {
+  display: block;
+}
+.wrap .todo .listEdit .todoLists .list .listCheck {
+  width: 6%;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #acacac;
+  float: left;
+  transition: 0.1s;
+}
+.wrap .todo .listEdit .todoLists .list .listCheck:hover {
+  font-size: 22px;
+  color: #232323;
+  margin-top: -1px;
+}
+.wrap .todo .listEdit .todoLists .list .listText {
+  position: relative;
+  width: 88%;
+  font: 0.5px 'Montserrat';
+  float: left;
+}
+.wrap .todo .listEdit .todoLists .list .listText input[type="text"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  color: #acacac;
+  font: inherit;
+}
+.wrap .todo .listEdit .todoLists .list .done {
+  color: #acacac;
+  text-decoration: line-through;
+}
+.wrap .todo .listEdit .todoLists .list .listDeleteButton {
+  display: none;
+  width: 6%;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #acacac;
+  transition: 0.1s;
+  overflow: visible;
+  float: left;
+}
+.wrap .todo .listEdit .todoLists .list .listDeleteButton:hover {
+  font-size: 22px;
+  color: #232323;
+  margin-top: -1px;
+}
+.wrap .todo .listEdit input[type="submit"] {
+  display: none;
+}
+.wrap .todo .list.hidden {
+  height: 0px;
+  opacity: 0;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.wrap .todo .controlBox {
+  clear: both;
+  width: 100%;
+  height: 30px;
+  margin-top: 10%;
+  position: relative;
+}
+.wrap .todo .controlBox .howManyLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: 0.5333333333333333px 'Montserrat';
+  text-indent: 10px;
+}
+.wrap .todo .controlBox .howManyLeft .howManyLeftCount {
+  margin-right: 4px;
+}
+.wrap .todo .controlBox .filter {
+  width: 40%;
+  min-width: 320px;
+  margin: 0 auto;
+}
+.wrap .todo .controlBox .filter input {
+  display: none;
+}
+.wrap .todo .controlBox .filter input[type="radio"] + label {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 4%;
+  padding: 0 4%;
+  font: 0.5333333333333333px 'Montserrat';
+  text-align: center;
+  border: 1px solid #acacac;
+  border-radius: 12px;
+  transition: all 0.1s;
+}
+.wrap .todo .controlBox .filter input[type="radio"]:checked + label {
+  background: #acacac;
+  color: white;
+}
+.wrap .todo .controlBox .clearButton {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font: 0.5333333333333333px 'Montserrat';
+}

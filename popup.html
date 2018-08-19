@@ -1,16 +1,273 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-      }
-    </style>
-  </head>
-  <body>
-    <button id="changeColor"></button>
-    <script src="popup.js"></script>
-  </body>
+
+<head>
+  <style>
+    #root {
+      height: 550px;
+      width: 300px;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="calendar">
+
+      <div class="selected">
+        <p class="whatDay">Saturday</p>
+        <p class="selectedDay" style="">18</p>
+        <div class="todayMarker">
+          <div class="checkMark hidden">
+            <svg class="svg-inline--fa fa-check fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512" data-fa-i2svg="">
+              <path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+            </svg>
+            <!-- <i class="fas fa-check"></i> -->
+          </div>
+          <div class="goToday">go today</div>
+        </div>
+      </div>
+
+      <div class="month">
+        <div class="whatMonth">
+
+          <div class="whatMonthArrow arrowL">
+            <svg class="svg-inline--fa fa-angle-left fa-w-8" aria-hidden="true" data-prefix="fas" data-icon="angle-left" role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 512" data-fa-i2svg="">
+              <path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path>
+            </svg>
+            <!-- <i class="fas fa-angle-left"></i> -->
+          </div>
+          <div class="whatMonthText">January 2016</div>
+          <div class="whatMonthArrow arrowR">
+            <svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" data-prefix="fas" data-icon="angle-right" role="img"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg="">
+              <path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+            </svg>
+            <!-- <i class="fas fa-angle-right"></i> -->
+          </div>
+
+        </div>
+        <div class="table">
+          <ul class="weeks">
+            <li>S</li>
+            <li>M</li>
+            <li>T</li>
+            <li>W</li>
+            <li>T</li>
+            <li>F</li>
+            <li>S</li>
+          </ul>
+          <div class="weeks tableRow">
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date" id="2016-1-1">
+            <label>1
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-2">
+            <label>2
+              <div></div>
+            </label>
+          </div>
+          <div class="weeks tableRow">
+            <input type="radio" name="date" id="2016-1-3">
+            <label>3
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-4">
+            <label>4
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-5">
+            <label>5
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-6">
+            <label>6
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-7">
+            <label>7
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-8">
+            <label>8
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-9">
+            <label>9
+              <div></div>
+            </label>
+          </div>
+          <div class="weeks tableRow">
+            <input type="radio" name="date" id="2016-1-10">
+            <label>10
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-11">
+            <label>11
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-12">
+            <label>12
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-13">
+            <label>13
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-14">
+            <label>14
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-15">
+            <label>15
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-16">
+            <label>16
+              <div></div>
+            </label>
+          </div>
+          <div class="weeks tableRow">
+            <input type="radio" name="date" id="2016-1-17">
+            <label>17
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-18">
+            <label>18
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-19">
+            <label>19
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-20">
+            <label>20
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-21">
+            <label>21
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-22">
+            <label>22
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-23">
+            <label>23
+              <div></div>
+            </label>
+          </div>
+          <div class="weeks tableRow">
+            <input type="radio" name="date" id="2016-1-24">
+            <label>24
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-25">
+            <label>25
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-26">
+            <label>26
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-27">
+            <label>27
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-28">
+            <label>28
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-29">
+            <label>29
+              <div></div>
+            </label>
+            <input type="radio" name="date" id="2016-1-30">
+            <label>30
+              <div></div>
+            </label>
+          </div>
+          <div class="weeks tableRow">
+            <input type="radio" name="date" id="2016-1-31">
+            <label>31
+              <div></div>
+            </label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+            <input type="radio" name="date">
+            <label></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="todo">
+      <p class="todoText">todo</p>
+      <form class="form">
+        <input type="text" name="input" placeholder="What needs to be done?" maxlength="36">
+        <input type="submit">
+      </form>
+      <form class="listEdit">
+        <ul class="todoLists">
+          <li class="list" listindex="0">
+            <div class="listCheck">
+              <svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true" data-prefix="far" data-icon="circle" role="img"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                <path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200z"></path>
+              </svg>
+              <!-- <i class="far fa-circle"></i> -->
+            </div>
+            <p class="listText">장보기</p>
+            <div class="listDeleteButton">
+              <svg class="svg-inline--fa fa-times-circle fa-w-16" aria-hidden="true" data-prefix="far" data-icon="times-circle"
+                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                <path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z"></path>
+              </svg>
+              <!-- <i class="far fa-times-circle"></i> -->
+            </div>
+          </li>
+        </ul>
+        <input type="submit">
+      </form>
+      <div class="controlBox">
+        <p class="howManyLeft">
+          <span class="howManyLeftCount">1</span>items left
+        </p>
+
+        <div class="filter">
+          <input type="radio" name="filter" id="filterAll" checked="">
+          <label for="filterAll">All</label>
+          <input type="radio" name="filter" id="filterActive">
+          <label for="filterActive">Active</label>
+          <input type="radio" name="filter" id="filterCompleted">
+          <label for="filterCompleted">Completed</label>
+        </div>
+        <p class="clearButton">Clear completed</p>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
 </html>

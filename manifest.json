@@ -1,7 +1,7 @@
 {
-  "name": "Getting Started Example",
+  "name": "Vanilla Calendar",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "Vanilla Calendar and TODO list for Chrome extension",
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "options_page": "options.html",
   "background": {
