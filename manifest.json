@@ -2,11 +2,11 @@
   "name": "Vanilla Calendar",
   "version": "1.0",
   "description": "Vanilla Calendar and TODO list for Chrome extension",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["storage"],
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"],
-    "persistent": false
+    "persistent": true
   },
   "page_action": {
     "default_popup": "popup.html",
